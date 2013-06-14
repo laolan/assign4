@@ -89,10 +89,23 @@
 				/*
 				第四步：
 				*/
-				FB.api('/me', function(response) {
+				FB.api('/me/friends', function(response) {
                   alert(response.name);
                  });
 				
+				function(response){
+				
+	              var i=0;
+					
+	              while(response['data'][i] != null){
+					
+		          var fId = response['data'][i]['id'];
+		          var fName = response['data'][i]['name'];
+		         $("<div onclick='changeInfo("+fId+");'><img src='https://graph.facebook.com/"+ fId + "/picture' /><span>"+fName+"                  </span></div>").appendTo("#FillInList");
+
+		              i++;
+	             }
+             }
 				
 				
 				/*
@@ -100,6 +113,8 @@
 				*/
 				//We have listed all your friends without any list categories.
 				//Try to use the api to retrieve our friend lists and display them in the website
+				
+				
 				
 					
 			}
