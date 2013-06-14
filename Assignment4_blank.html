@@ -71,7 +71,7 @@
 						window.location = defaultPath;
                   } else {
 					// the user isn't even logged in to Facebook.
-						alert("你寫錯了");
+						alert("Please Login with your Facebook account!");
 						window.location = defaultPath;
 				  }	
 				  
@@ -89,7 +89,9 @@
 				/*
 				第四步：
 				*/
-				
+				FB.api('/me', function(response) {
+                  alert(response.name);
+                 });
 				
 				
 				
